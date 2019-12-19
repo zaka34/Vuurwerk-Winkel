@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vuurwerk Shop HYP3 | Home</title>
+    <link rel="stylesheet" href="./css/vuurwerkshop4.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">HYP3</span> Vuurwerk SHOP</h1>
+        </div>
+        <nav>
+          <ul>
+            <li> <a> home </a></li>
+            <li><a> winkelwagen </li>
+            <li><a> over ons</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+ <?php 
+
+try { 
+
+$servername = "localhost"; 
+$username = "root"; 
+$password = "";
+$dbname = "vuurwerk"; 
+
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username, $password);
+    $result = $conn -> query("SELECT * from product"); 
+    $result->setFetchMode(PDO::FETCH_ASSOC); 
+
+    echo "Connected successfully<br>"; 
+    }
+catch(PDOException $e)
+{
+    echo "Connection failed: " . $e->getMessage();
+}
+
+
+$result = $conn -> query("SELECT * from product");
+while ($row = $result->fetch()) { 
+        echo $row[''] . "<br>"; 
+        echo $row['url_afbeelding'] . "<br>"; 
+        echo "<img src=".$row['url_afbeelding'] . ">"; 
+
+}
+
+?>
+
+
+
+    <section id="showcase">
+      <div class="container">
+        <h1>HYP3 vuurwerk shop</h1>
+        <p>knallend en veilig 2020 in ! </p>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <div class="container">
+        <h1>ons assortiment aan vuurwerk</h1>
+        <form>
+          <button type="submit" class="button_1">winkelwagen <img src="./img/winkelwagen.jpg"> </button>   
+        </form>
+      </div>
+    </section>
+
+
+    <section id="boxes">
+      <div class="container">
+        <div class="box">
+          <img src="./img/pijl.jpeg"> 
+          <h3>Vuurpijl</h3>
+          <p>Hij schiet hoog de hemel in, waarna hij explodeert tot een prachtige gouden palm!  </p>
+          <button type="button">&euro;12,- toevoegen</button>
+        </div>
+        <div class="box">
+          <img src="./img/rotjes.jpeg">
+          <h3>Rotjes</h3>
+          <p>De populaire knallers onder de jeugd!</p>
+          <button type="button">&euro;1,- toevoegen</button>
+        </div>
+        <div class="box">
+          <img src="./img/7klapper.jpeg"> 
+          <h3>Zeven klapper</h3>
+          <p>De originele zevenklapper. Een keer aansteken, 7 keer knallen.</p>
+          <button type="button">&euro;3,99 toevoegen</button>
+        </div>
+        <div class="box">
+          <img src="./img/grondbloem.png"> 
+          <h3>Grondbloemen</h3>
+          <p>Deze Grondbloemen draaien sierlijk over de straat, en veranderen tijdens deze dans drie keer van kleur!.</p>
+          <button type="button"> &euro;2,50 toevoegen</button>
+        </div>
+        <div class="box">
+          <img src="./img/mega.jpeg"> 
+          <h3>Mega knal</h3>
+          <p>Enkelshots mortieren in verschillende kleuren, met felle crackling mijn en kleurenkomeet! </p>
+          <button type="button">&euro;3,99 toevoegen</button>
+        </div>
+        <div class="box">
+          <img src="./img/thunderking.jpeg"> 
+          <h3>Thunderkings</h3>
+          <p>hier staat dan een korte beschriving over thunderkings.</p>
+          <button type="button"> &euro; 3,-toevoegen</button>
+        </div>
+        <div class="box">
+          <img src="./img/vuurwerkpakket.jpeg"> 
+          <h3>Vuurwerkpakket</h3>
+          <p>boordevol vuurwerk, met onder andere leuke fonteinen, vuurpijlen en andere vuurwerkartikelen voor het hele gezin!</p>
+          <button type="button">&euro;49,99 toevoegen</button>
+        </div>
+        <div class="box">
+          <img src="./img/cobra8.jpeg"> 
+          <h3>Cobra 8</h3>
+          <p>de hardste knaller die er is.</p>
+          <button type="button"> &euro;12,- toevoegen</button>
+        </div>
+    </section>
+
+    <footer>
+      <p>HYP3 Techniek College Rotterdam 1G , Copyright &copy; 2019/2020</p>
+    </footer>
+  </body>
+</html>
